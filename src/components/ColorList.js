@@ -9,7 +9,6 @@ export default function ColorList({
     if (!colors.length) return <div>No colors listed.</div>;
 
     return colors.map((color) => (
-        <Color key={color.id} {...color} onRemove={onRemoveColor}
-               onRate={onRateColor}/>
+        <Color key={color.id} {...color} onRemove={onRemoveColor} onRate={onRateColor} />
     ));
 }
