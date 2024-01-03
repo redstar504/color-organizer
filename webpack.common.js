@@ -1,13 +1,12 @@
 var path = require("path");
+var webpack = require('webpack');
 
 module.exports = {
-    mode: 'development',
     entry: "./src/index.js",
     output: {
         path: path.join(__dirname, "dist"),
         filename: "[name].bundle.js",
     },
-    devtool: 'inline-source-map',
     module: {
         rules: [
             {
@@ -17,10 +16,8 @@ module.exports = {
             }
         ]
     },
-    devServer: {
-        static: './dist',
-    },
     optimization: {
         runtimeChunk: 'single',
     }
 }
+
