@@ -1,16 +1,19 @@
-import React from 'react';
-import StarRating from './StarRating';
-import {FaTrash} from 'react-icons/fa';
+import React from "react";
+import StarRating from "./StarRating";
+import {FaTrash} from "react-icons/fa";
+import {useColors} from "../context";
 
-function Color({id, title, color, rating, onRemove = f => f, onRate = f => f}) {
+function Color({id, title, color, rating}) {
+    const {rateColor, removeColor} = useColors();
+
     return (
         <section>
             <h2>{title}</h2>
-            <button onClick={() => onRemove(id)}>
+            <button onClick={() => removeColor(id)}>
                 <FaTrash/>
             </button>
             <div style={{height: 50, backgroundColor: color}}/>
-            <StarRating selectedStars={rating} onRate={rating => onRate(id, rating)}/>
+            <StarRating selectedStars={rating} onRate={rating => rateColor(id, rating)}/>
         </section>
     );
 }
